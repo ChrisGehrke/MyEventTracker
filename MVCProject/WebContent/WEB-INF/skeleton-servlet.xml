@@ -11,11 +11,11 @@
 
 	<bean id="myEntityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-		<property name="persistenceUnitName" value="MVCProject" />
+		<property name="persistenceUnitName" value="YourPU" />
 	</bean>
 
 	<bean id="myTransactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-		<property name="transactionManager" ref="myEntityManagerFactory" />
+		<property name="entityManagerFactory" ref="myEntityManagerFactory" />
 	</bean>
 
 	<tx:annotation-driven transaction-manager="myTransactionManager" />

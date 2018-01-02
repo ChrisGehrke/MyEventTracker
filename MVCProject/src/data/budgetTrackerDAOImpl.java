@@ -22,7 +22,7 @@ public class budgetTrackerDAOImpl implements budgetTrackerDAO {
 		
 		@Override
 		public List<Budget> show(){
-			String query = "SELECT t FROM expenses t";
+			String query = "SELECT s FROM Budget s";
 			List<Budget> spending = em.createQuery(query, Budget.class).getResultList();
 			return spending;
 		}
