@@ -31,18 +31,6 @@ public class budgetTrackerDAOImpl implements budgetTrackerDAO {
 		public Budget getBudget(int id) {
 			return em.find(Budget.class, id);
 		}
-		
-		
-		@Override
-		public boolean deleteBudget(int id) {
-			try {
-				em.remove(getBudget(id));
-				return true;
-			} catch(Exception e) {
-				return false;
-			}
-		}
-		
 		@Override
 		public Budget addBudget(String json) {
 			ObjectMapper mapper = new ObjectMapper();
@@ -55,6 +43,7 @@ public class budgetTrackerDAOImpl implements budgetTrackerDAO {
 			}
 			return null;
 		}
+		
 		
 		@Override
 		public Budget updateBudget(String json, int id) {
@@ -71,6 +60,15 @@ public class budgetTrackerDAOImpl implements budgetTrackerDAO {
 				e.printStackTrace();
 			}
 			return null;
+		}
+		@Override
+		public boolean deleteBudget(int id) {
+			try {
+				em.remove(getBudget(id));
+				return true;
+			} catch(Exception e) {
+				return false;
+			}
 		}
 		
 		
